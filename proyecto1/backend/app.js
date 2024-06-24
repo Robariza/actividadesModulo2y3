@@ -1,29 +1,30 @@
-// 1. Importar dependecias y modulos que necesitamos
+//1. importamos las dependencias y módulos que necesitamos
 import express from 'express';
 import dotenv from 'dotenv';
-// Variables de entorno -> guardan información delicada
-
-
-// Importación del modulo 
+//Variables de entorno -> nos guardan informacion delicada
 import connectionMongo from './config/db.js';
+import productsRouter from './routes/products.routes.js';
 
 
-// 2. Configurar el uso del servidor (Express) y las variables de entorno (dotenv)
+//2.Configurar el uso de nuestro servidor y de nuestras variables de
+const app = express(); //configuramos nuestro servidor
+dotenv.config(); //configuramos nuestras variables de entorno
+const port = process.env.PORT;
 
-const app = express(); // configuración del servidor
-dotenv.config(); //Configuración de las varibles de entorno
-const port = process.env.PORT; //Variable de entorno port
-
-// Ejecuta la conexión a la base de datos
+//conéctese a la base de datos
 connectionMongo();
+//usamos las rutas
+app.use('/', productsRouter);
 
-// Prueba
+
+
+//Prueba
 // app.get('/',(req, res)=>{
 //     res.send('HOLAAAAA, ESTO ES UNA PETICIÓN A MI SERVIDOR');
 // });
 
 
-// 3. Ejecutar el servidor (escuchar servidor)
+//3. escuchar nuestro servidor (ejecutarlo)
 app.listen(port, ()=>{
-    console.log(`El servidor se esta escuchando en: http://localhost:${port}`);
+    console.log(`El servidor se está escuchando en: http://localhost:${port}`);
 });
