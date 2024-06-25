@@ -2,9 +2,7 @@
     {
         "nombre":"Cheesecake de frutos rojos",
         "imagen":"https://cdn0.recetasgratis.net/es/posts/1/4/9/cheesecake_de_frutos_rojos_73941_orig.jpg",
-        "precio":"30000",
-        "cantidad":10,
-        "descriptcion":"contenido-x"
+        "precio":"30000"
     },
     {
         "nombre":"Tarta selva negra",
