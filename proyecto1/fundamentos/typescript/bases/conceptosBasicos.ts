@@ -97,7 +97,7 @@ miObjeto = {
 
 let retorno: any;
 
-function miFuncion1(): void{
+function miFuncion1(): void{ // void -> no devuelve datos
 };
 // ejecutar función
 miFuncion1();
