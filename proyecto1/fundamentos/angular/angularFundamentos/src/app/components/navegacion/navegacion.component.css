@@ -1,0 +1,16 @@
+
+.miLista{
+    width: 100%;
+    height: 50px;
+
+    background-color: burlywood;
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    font-size: 25px;
+    color: brown;
+}

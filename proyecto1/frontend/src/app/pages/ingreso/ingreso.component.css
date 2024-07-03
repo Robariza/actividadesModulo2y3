@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body{
+    width: 100vw;
+    height: auto;
+}
+
+main{
+    width: 100vw;
+    height: auto;
+
+    display: grid;
+    place-content: center;
+}
+
+.tituloIngreso{
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    margin: 50px;
+}
+
+.formulario{
+    width: 650px;
+    height: 450px;
+    padding: 10px;
+
+    border: solid 8px gray;
+    border-radius: 8px;
+    box-shadow: 0px 6px 15px black;
+
+    font-size: 18px;
+}
+
+.formulario button{
+    padding: 10px;
+}
+

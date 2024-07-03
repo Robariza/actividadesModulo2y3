@@ -1,8 +1,9 @@
 footer{
     width: 100%;
-    background-color: burlywood;
-    color: brown;
-    font-size: 25px;
+    height: 40px;
+
+    background-color: #6c757d;
+    color: black;
     text-align: center;
 
     position: fixed;

@@ -15,6 +15,5 @@ import { FooterComponent } from './components/footer/footer.component';
 
 // componente principal
 export class AppComponent {
-
   // acá va la lógica general del proyecto
 }
