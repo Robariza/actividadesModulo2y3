@@ -1,14 +1,17 @@
 //1. importamos las dependencias y módulos que necesitamos
 import express from 'express';
-import dotenv from 'dotenv';
 //Variables de entorno -> nos guardan informacion delicada
+import dotenv from 'dotenv';
+//conexion DB
 import connectionMongo from './config/db.js';
 import productsRouter from './routes/products.routes.js';
 
 
 //2.Configurar el uso de nuestro servidor y de nuestras variables de
 const app = express(); //configuramos nuestro servidor
-dotenv.config(); //configuramos nuestras variables de entorno
+
+//configuramos nuestras variables de entorno
+dotenv.config(); 
 const port = process.env.PORT;
 
 //conéctese a la base de datos
@@ -22,10 +25,9 @@ app.use(express.json());
 app.use('/', productsRouter);
 
 
-
-//Prueba
-// app.get('/',(req, res)=>{
-//     res.send('HOLAAAAA, ESTO ES UNA PETICIÓN A MI SERVIDOR');
+//Petición de prueba
+// app.get('/',(req, res)=>{ // app(servidor).get(petición) ('/', ()=>) (ruta raiz, función flecha) req/res (petición y respuesta)
+//     res.send('Hola, esto es una petición del servidor'); (enviar una respuesta)
 // });
 
 
