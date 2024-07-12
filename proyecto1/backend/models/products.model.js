@@ -1,6 +1,5 @@
 //importamos mongoose -> Schema -> plantilla de los productos
 import mongoose from 'mongoose';
-
 const schema = mongoose.Schema;
 
 //Estructrando cómo se van a guardar la información de los productos en nuestra db
