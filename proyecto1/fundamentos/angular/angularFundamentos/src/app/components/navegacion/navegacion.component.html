@@ -1,5 +1,9 @@
 <nav>
     <ul class="miLista">
+        <!-- Usamos routerlink en vez de 'href' ya que ese tipo de navegación en angular no funciona, debemos hacerlo por medio de las rutas que debemos preestablecer para enlazar, en este caso, las paginas del menuNav -->
+
+        <!-- Debemos hacer la importacion de RouterLink en el .ts del menuNav para habilitar los enlaces -->
+         
         <a routerLink="/inicio"><li>Inicio</li></a>
         <a routerLink="/productos"><li>Productos</li></a>
         <a ><li>Privado</li></a>
