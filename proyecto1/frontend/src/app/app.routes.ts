@@ -8,5 +8,6 @@ export const routes: Routes = [
     {path:'inicio', component:InicioComponent},
     {path:'productos', component:ProductosComponent},
     {path:'ingreso',component:IngresoComponent},
-    {path:'admin',component:AdminComponent}
+    {path:'admin',component:AdminComponent},
+    {path: '', redirectTo: '/inicio', pathMatch: 'full'}
 ];
