@@ -1,4 +1,4 @@
-// injeccion de directivas de angular, formularios
+// injeccion de directivas de angular, formularios -> colocamos inject con component ya que ambos hacen parte de @angular/core
 import { Component, inject } from '@angular/core';
 // permite interactuar con formularios
 import { FormsModule } from '@angular/forms';
@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 
 export class IngresoComponent {
-  // injectamos lo que necesitamos -> decirle al componente que voy a utilizar
+  // injectamos lo que necesitamos -> es decirle al componente qué voy a utilizar
   // injectamos nuestra directiva del router (permite al redireccion)
   // estamos dentro de una clase de ts, entonces declaramos lo que usamos como atributos
   router = inject(Router);//router (variable) =(asiganamos) inject(injectamos)(Router)(objeto, lo que vamos a injectar)
@@ -26,8 +26,9 @@ export class IngresoComponent {
     contrasena: 'admin'
   };
 
-  // los datos tipo estring se inicializan en '', los numericos en 0 y los booleanos en false
+  // los datos tipo estring se inicializan en '' (vacío), los numéricos en 0 y los booleanos en false
 
+  // Debemos conectar estas varibales con el formulario de ingreso en HTML, hacemos uso de FormsModule
   correo: string = ''
   contrasena: string = ''
 

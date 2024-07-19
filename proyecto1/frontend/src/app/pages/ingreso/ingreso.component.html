@@ -4,12 +4,15 @@
         <form class="formulario">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
+              <!-- El input debe tener un 'name' que esté relacionado con las variables en el archivo .ts (dentro de la etiqueta) -->
+              <!-- [(ngModel)] = "correo" -> Crea la comunicación entre el input y la variable -->
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="correo" [(ngModel)]="correo">
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Contraseña</label>
               <input type="password" class="form-control" id="exampleInputPassword1" name="contrasena" [(ngModel)]="contrasena">
             </div>
+            <!-- Integramos el evento (click) e indicamos la acción a realizar, en este caso iniciarSesion(), que es la función que creamos para el ingreso del admin-->
             <button type="submit" class="btn btn-dark" (click)="iniciarSesion()">Ingresar</button>
           </form>
     </main>
