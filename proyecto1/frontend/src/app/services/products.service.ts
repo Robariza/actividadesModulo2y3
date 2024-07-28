@@ -9,10 +9,10 @@ import { HttpClient } from '@angular/common/http';
 export class ProductsService {
 
   constructor() { }
-  // Peticion a la base de datos desde angular
+  // injectamos la peticion a la base de datos desde angular
   httpClient = inject(HttpClient);
 
-  // definición rutas de peticiones
+  // definición rutas de peticiones previamente comprobadas con Postman
   API_URL_GET = 'http://localhost:3000/obtenerProductos';
   API_URL_POST = 'http://localhost:3000/registrarProducto';
   API_URL_DELETE = 'http://localhost:3000/eliminarProducto';
