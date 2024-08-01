@@ -1,27 +1,33 @@
-// 1.Importar dependencias y módulos
-
+// 1. Importar dependencias y módulos
 // EXPRESS
 import express from 'express';
 // DOTENV
 import dotenv from 'dotenv';
 // CORS
 import cors from 'cors';
+// CONEXIÓN MONGODB
+import connectionMongo from './config/db.js';
 
-// 2.Hacemos la configuración 
+// 2. Hacemos la configuración 
 
-//Dependencias 
+// Dependencias 
 // EXPRESS (servidor)
 const app = express();
 // DOTENV
 dotenv.config();
 
-// Middlewears -> Intermediarios 
+// Middlewares -> Intermediarios 
 // CORS
 app.use(cors());
 
-// 3.Escuchar server para ejecutar el app
-const port = 6000;
+// 3. Escuchar server para ejecutar el app
 
-app.listen(port, ()=>{
-    console.log('El servidor se está ejecutando correctamente')
+// Condicional ternario -> variable = condicion ? 'condicion' true : 'condicion' false
+const port = process.env.PORT ? process.env.PORT : 6000;
+
+// Conexión base de datos
+connectionMongo();
+
+app.listen(port, () => {
+    console.log('El servidor se está ejecutando correctamente en el puerto :' + port);
 });
