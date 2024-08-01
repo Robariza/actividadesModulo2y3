@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
-// Importamos la superclase userModel, de donde vamos a heredar
-import userModel from "./user.model.js";
+import mongoose from 'mongoose';
+import userModel from './user.model.js';
 
+// Definimos el esquema específico para admin
 const adminSchema = new mongoose.Schema({
     categoriaAdmin: {
         type: Boolean,
@@ -10,6 +10,7 @@ const adminSchema = new mongoose.Schema({
     }
 });
 
-// mongoose -> método 'discriminator' -> permite crear un modelo admin usando otro modelo, user
+// Usamos el método 'discriminator' de mongoose para crear el modelo admin basado en userModel
+const adminModel = userModel.discriminator('Admin', adminSchema);
 
-export const adminModel = userModel.discriminator('Admin', adminSchema);
+export default adminModel;

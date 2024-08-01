@@ -7,6 +7,11 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 // CONEXIÓN MONGODB
 import connectionMongo from './config/db.js';
+// RUTAS
+// USERS
+import userRouter from './routes/user.routes.js';
+// ADMIN
+import adminRouter from './routes/admin.routes.js';
 
 // 2. Hacemos la configuración 
 
@@ -27,6 +32,11 @@ const port = process.env.PORT ? process.env.PORT : 6000;
 
 // Conexión base de datos
 connectionMongo();
+
+// middleware incorporado -> users
+app.use('/users', userRouter);
+// Admin
+app.use('/admin', adminRouter); 
 
 app.listen(port, () => {
     console.log('El servidor se está ejecutando correctamente en el puerto :' + port);

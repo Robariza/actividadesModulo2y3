@@ -23,4 +23,6 @@ const userSchema = new mongoose.Schema({
 
 // 3.Creamos y Exportamos el modelo usando mongoose, indicamos el nombre de la colección
 
-export default userModel = mongoose.model('usuario', userSchema);
+const userModel = mongoose.model('usuario', userSchema);
+
+export default userModel;
