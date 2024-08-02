@@ -32,6 +32,7 @@ const port = process.env.PORT ? process.env.PORT : 6000;
 
 // Conexión base de datos
 connectionMongo();
+app.use(express.json());
 
 // middleware incorporado -> users
 app.use('/users', userRouter);
