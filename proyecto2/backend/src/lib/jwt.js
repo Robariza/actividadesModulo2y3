@@ -17,7 +17,7 @@ function generateToken(payload){
             // validamos si hay error al generar el token
             if(error){
                 // Indicamos lo que sucede si sale mal
-                reject(new Error('Error al generar JWT', message.error))
+                reject(new Error('Error al generar JWT', error.message));
             }else{
                 // Indicamos lo que sucede si sale bien
                 resolve(token);
@@ -33,7 +33,7 @@ function verifyToken(){
             // validamos decodificación
             if(error){
                 // Indicamos lo que sucede si sale mal
-                reject(new Error('Error al decodificar JWT', message.error))
+                reject(new Error('Error al decodificar JWT', error.message));
             }else{
                 // Indicamos lo que sucede si sale bien
                 resolve(decoded);
