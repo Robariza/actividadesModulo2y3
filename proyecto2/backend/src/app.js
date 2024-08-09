@@ -12,6 +12,8 @@ import connectionMongo from './config/db.js';
 import userRouter from './routes/user.routes.js';
 // ADMIN
 import adminRouter from './routes/admin.routes.js';
+// Login
+import loginRouter from './routes/login.routes.js';
 
 // 2. Hacemos la configuración 
 
@@ -39,6 +41,8 @@ app.use(express.json());
 app.use('/users', userRouter);
 // Admin
 app.use('/admin', adminRouter); 
+// Login
+app.use('/login', loginRouter);
 
 app.listen(port, () => {
     console.log('El servidor se está ejecutando correctamente en el puerto :' + port);

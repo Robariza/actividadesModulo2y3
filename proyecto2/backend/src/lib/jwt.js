@@ -1,45 +1,43 @@
 // importar dependencias
-import { jwt } from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
-// configuramos una clave secreta
+// Configurar dotenv para cargar variables de entorno
+dotenv.config();
+
+// Obtener la clave secreta desde las variables de entorno
 const secretKey = process.env.JWT_SECRET;
 
-// Estructurar funciones para generar y verificar jwt
+// Verificar que secretKey esté definida
+if (!secretKey) {
+    throw new Error('La clave secreta JWT no está definida en las variables de entorno');
+}
 
-// Generar token
-function generateToken(payload){
-    // promesas -> información que debemos esperar
-    // configuramos generateToken como asincrónica
-    return new Promise((resolve, reject)=>{
-        // Generamos token -> necesitamos payload, clave secreta, tiempo de expiración
-        // Indicamos try-catch
-        jwt.sign(payload, secretKey, {expiresIn:'1h'}, (token, error)=>{
-            // validamos si hay error al generar el token
-            if(error){
-                // Indicamos lo que sucede si sale mal
-                reject(new Error('Error al generar JWT', error.message));
-            }else{
-                // Indicamos lo que sucede si sale bien
+// Función para generar un token
+function generateToken(payload) {
+    return new Promise((resolve, reject) => {
+        jwt.sign(payload, secretKey, { expiresIn: '1h' }, (error, token) => {
+            if (error) {
+                reject(new Error('Error al generar JWT: ' + error.message));
+            } else {
                 resolve(token);
             }
         });
     });
-};
+}
 
-// Verificar token
-function verifyToken(){
-    return new Promise((resolve, reject)=>{
-        jwt.verify(token, secretKey, (decoded, error)=>{
-            // validamos decodificación
-            if(error){
-                // Indicamos lo que sucede si sale mal
-                reject(new Error('Error al decodificar JWT', error.message));
-            }else{
-                // Indicamos lo que sucede si sale bien
+// Función para verificar un token
+function verifyToken(token) {
+    return new Promise((resolve, reject) => {
+        jwt.verify(token, secretKey, (error, decoded) => {
+            if (error) {
+                reject(new Error('Error al decodificar JWT: ' + error.message));
+            } else {
                 resolve(decoded);
             }
         });
     });
-};
+}
 
-export default {generateToken, verifyToken};
+// Exportar funciones
+export default { generateToken, verifyToken };
