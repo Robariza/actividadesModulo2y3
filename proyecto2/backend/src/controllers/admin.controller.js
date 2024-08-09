@@ -65,7 +65,17 @@ export const getAdmin = async (request, response) => {
 
 // Eliminar administradores
 export const deleteAdminById = async (request, response) => {
+    const { id } = request.params;
 
-    // TAREÍTA ELIMINAR ADMINISTRADORES
-    return response.send('Funciona la petición DELETE de un admin');
-}
+    try {
+        const admin = await Admin.findByIdAndDelete(id);
+
+        if (!admin) {
+            return response.status(404).json({ message: 'Admin no encontrado' });
+        }
+
+        return response.status(200).json({ message: 'Admin eliminado exitosamente' });
+    } catch (error) {
+        return response.status(500).json({ message: 'Error eliminando admin', error });
+    }
+};

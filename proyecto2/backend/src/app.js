@@ -32,6 +32,7 @@ const port = process.env.PORT ? process.env.PORT : 6000;
 
 // Conexión base de datos
 connectionMongo();
+// Indicamos al servidor el tipo .json para los controllers
 app.use(express.json());
 
 // middleware incorporado -> users

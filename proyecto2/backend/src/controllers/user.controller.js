@@ -13,7 +13,6 @@ export const postUser = async (request, response) => {
             correo,
             contrasena: codedPasswordUser
         });
-        // .save
 
         return response.status(201).json({
             estado: '201',
@@ -107,7 +106,6 @@ export const putUserById = async (request, response) => {
         const dataForUpdate = request.body
         const userUpdated = await userModel.findByIdAndUpdate(idForPut, dataForUpdate);
 
-        // TAREITA: AGREGUE VALIDACIONES QUE CONSIDERE NECESARIAS
         return response.status(200).json({
             estado: '200',
             mensaje:'Se actualizó correctamente',
@@ -128,7 +126,6 @@ export const deleteUserById = async (request, response) => {
    try {
     let idForDelete = request.params.id
     const userDeleted = await userModel.findByIdAndDelete(idForDelete);
-    // TAREITA: AGREGUE VALIDACIONES QUE CONSIDERE NECESARIAS
 
     return response.status(200).json({
         estado:'200',
